@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var autoprefixer = require('autoprefixer-core');
+var pngquant = require('imagemin-pngquant');
 
 var paths = {
     scripts: ['assets/**/*.js'],
@@ -49,7 +50,7 @@ gulp.task('minify-js', function() {
 
 //Move fonts to the fonts directory
 gulp.task('copy-fonts', function() {
-  return gulp.src(paths.static)
+  return gulp.src(paths.fonts)
     .pipe($.plumber())
     .pipe(gulp.dest('./public'))
     .pipe($.filesize())

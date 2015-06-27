@@ -24,7 +24,8 @@
     "autoprefixer-core": "5.2.1",
     "gulp-rename": "1.2.2",
     "gulp-filesize": "0.0.6",
-    "gulp-imagemin": "2.3.0"
+    "gulp-imagemin": "2.3.0",
+    "imagemin-pngquant": "4.1.0"
   },
   "description": "Personal website for Kerr Marin Miller",
   "main": "app.js",

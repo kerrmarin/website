@@ -52,7 +52,7 @@ gulp.task('minify-js', function() {
 gulp.task('copy-fonts', function() {
   return gulp.src(paths.fonts)
     .pipe($.plumber())
-    .pipe(gulp.dest('./public'))
+    .pipe(gulp.dest('./public/font'))
     .pipe($.filesize())
 });
 

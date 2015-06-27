@@ -6,15 +6,17 @@ var autoprefixer = require('autoprefixer-core');
 
 var paths = {
     scripts: ['assets/**/*.js'],
-    styles: ['assets/**/*.scss']
+    styles: ['assets/**/*.scss'],
+    fonts: ['assets/font/*'],
+    images: ['assets/img/*']
 };
 
 //Translate SASS to CSS
 gulp.task('sass', function () {
-    gulp.src(paths.styles)
-        .pipe($.sass().on('error', $.sass.logError))
-        .pipe(gulp.dest('./assets'))
-        .on('error', error($.util.log));
+  return gulp.src(paths.styles)
+    .pipe($.sass().on('error', $.sass.logError))
+    .pipe(gulp.dest('./assets'))
+    .on('error', error($.util.log));
 });
 
 //Minify all CSS files
@@ -35,7 +37,7 @@ gulp.task('minify-css', function() {
 
 // Minify and copy all JavaScript (except vendor scripts)
 gulp.task('minify-js', function() {
-    return gulp.src(paths.scripts)
+  return gulp.src(paths.scripts)
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.uglify())
@@ -45,11 +47,33 @@ gulp.task('minify-js', function() {
     .pipe($.filesize());
 });
 
-//Watch the SCSS folder
+//Move fonts to the fonts directory
+gulp.task('copy-fonts', function() {
+  return gulp.src(paths.static)
+    .pipe($.plumber())
+    .pipe(gulp.dest('./public'))
+    .pipe($.filesize())
+});
+
+//Optimize images and move them to the public folder
+gulp.task('copy-images', function() {
+  return gulp.src(paths.images)
+    .pipe($.plumber())
+    .pipe($.imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()]
+    }))
+    .pipe(gulp.dest('./public/img'));
+});
+
+//Watch the SCSS and scripts folder
 gulp.task('watch', function () {
     gulp.watch(paths.styles, ['minify-css']);
     gulp.watch(paths.scripts, ['minify-js']);
+    gulp.watch(paths.fonts, ['copy-fonts']);
+    gulp.watch(paths.images, ['copy-images']);
 });
 
 //Default task
-gulp.task('default', ['minify-css', 'minify-js']);
+gulp.task('default', ['minify-css', 'minify-js', 'copy-fonts', 'copy-images']);

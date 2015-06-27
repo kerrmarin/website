@@ -1,0 +1,94 @@
+@import 'fonts';
+
+/*
+Styles
+*/
+body {
+  background: url('../img/5.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/5.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/5.jpg', sizingMethod='scale')";
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+div.container-narrow {
+	max-width:700px;
+	margin:0 auto;
+}
+
+.jumbo {
+	margin-top:10%;
+}
+
+p {
+	font-family: 'GothamLight', Helvetica, sans-serif;
+	text-transform: uppercase;
+	color:white;
+	line-height: 1.3em;
+}
+
+.jumbo .title {
+	font-size: 9em;
+	font-family: 'GothamMedium', Helvetica, sans-serif;
+	line-height: 0.8em;
+}
+
+.jumbo .prominent {
+	font-size:2em;
+}
+
+.secondary {
+	font-size: 1.5em;
+}
+
+.span4{
+	line-height: 3.5em;
+}
+
+.span4 img {
+	cursor: pointer;
+}
+
+strong {
+	font-family: 'GothamMedium', Helvetica, sans-serif;
+}
+
+a {
+	color:white;
+	text-decoration: none;
+}
+
+a:hover {
+	color:rgba(90,102,114,1);
+	text-decoration:none;
+}
+
+.fancybox-title-float-wrap {
+    margin-bottom:-55px;
+}
+
+.fancybox-title-float-wrap .child {
+    white-space: normal;
+}
+
+/*
+* iPhone
+*/
+
+@media screen and (max-device-width: 480px){
+	.jumbo .title {
+		font-size: 6em;
+	}
+
+	.jumbo .prominent {
+		font-size: 1.3em;
+	}
+
+	.secondary {
+		font-size:1.1em;
+	}
+}

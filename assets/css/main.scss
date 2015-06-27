@@ -1,5 +1,8 @@
 @import 'fonts';
 
+$medium-font:'GothamMedium', Helvetica, sans-serif;
+$light-font:'GothamLight', Helvetica, sans-serif;
+
 /*
 Styles
 */
@@ -18,8 +21,8 @@ body {
 .description {
   padding: 20px 0;
   margin: 20px 0;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 div.container-narrow {
@@ -29,23 +32,23 @@ div.container-narrow {
 
 .jumbo {
 	margin-top:10%;
+
+  .title {
+  	font-size: 9em;
+  	font-family: $medium-font;
+  	line-height: 0.8em;
+  }
+
+  .prominent {
+  	font-size:2em;
+  }
 }
 
 p {
-	font-family: 'GothamLight', Helvetica, sans-serif;
+	font-family: $light-font;
 	text-transform: uppercase;
 	color:white;
 	line-height: 1.3em;
-}
-
-.jumbo .title {
-	font-size: 9em;
-	font-family: 'GothamMedium', Helvetica, sans-serif;
-	line-height: 0.8em;
-}
-
-.jumbo .prominent {
-	font-size:2em;
 }
 
 .secondary {
@@ -61,7 +64,7 @@ p {
 }
 
 strong {
-	font-family: 'GothamMedium', Helvetica, sans-serif;
+	font-family: $medium-font;
 }
 
 a {
@@ -86,7 +89,7 @@ a:hover {
 * iPhone
 */
 
-@media screen and (max-device-width: 480px){
+@media screen and (max-width: 480px) {
 	.jumbo .title {
 		font-size: 6em;
 	}

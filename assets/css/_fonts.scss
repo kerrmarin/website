@@ -12,11 +12,11 @@
 
 @font-face {
     font-family: 'GothamMedium';
-    src: url('Gotham-Medium.eot'); /* IE9 Compat Modes */
-    src: url('Gotham-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('Gotham-Medium.woff') format('woff'), /* Modern Browsers */
-         url('Gotham-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('Gotham-Medium.svg#Gotham-Medium') format('svg'); /* Legacy iOS */
+    src: url('../font/Gotham-Medium.eot'); /* IE9 Compat Modes */
+    src: url('../font/Gotham-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../font/Gotham-Medium.woff') format('woff'), /* Modern Browsers */
+         url('../font/Gotham-Medium.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../font/Gotham-Medium.svg#Gotham-Medium') format('svg'); /* Legacy iOS */
     font-style: normal;
     font-weight: bold;
     text-rendering: optimizeLegibility;

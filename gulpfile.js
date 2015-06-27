@@ -6,7 +6,8 @@ var autoprefixer = require('autoprefixer-core');
 var pngquant = require('imagemin-pngquant');
 
 var paths = {
-    scripts: ['assets/**/*.js'],
+    scripts: ['assets/js/*.js'],
+    vendorScripts: ['assets/js/vendor/**/*'],
     styles: ['assets/**/*.scss'],
     fonts: ['assets/font/*'],
     images: ['assets/img/*']
@@ -68,6 +69,13 @@ gulp.task('copy-images', function() {
     .pipe(gulp.dest('./public/img'));
 });
 
+gulp.task('copy-vendor-scripts', function() {
+  return gulp.src(paths.vendorScripts)
+    .pipe($.plumber())
+    .pipe(gulp.dest('./public/js/vendor'))
+    .pipe($.filesize())
+});
+
 //Watch the SCSS and scripts folder
 gulp.task('watch', function () {
     gulp.watch(paths.styles, ['minify-css']);
@@ -77,4 +85,4 @@ gulp.task('watch', function () {
 });
 
 //Default task
-gulp.task('default', ['minify-css', 'minify-js', 'copy-fonts', 'copy-images']);
+gulp.task('default', ['minify-css', 'minify-js', 'copy-fonts', 'copy-images', 'copy-vendor-scripts']);

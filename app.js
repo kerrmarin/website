@@ -6,7 +6,7 @@ var favicon = require('serve-favicon');
 var routes = require('./routes/index');
 
 var app = express();
-
+app.disable('x-powered-by');
 // Create `ExpressHandlebars` instance with a default layout.
 var hbs = exphbs.create({
     defaultLayout: 'main',
